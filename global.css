@@ -1,0 +1,458 @@
+/* Adwaita for Tine: everything a theme.json package cannot carry.
+
+   Pairs with theme.json (Settings → Appearance → Theme packages), which sets the
+   palette. Install this file as Tine's device-wide global.css
+   (~/.config/page.tine.Tine/global.css, or Settings → Appearance → Edit global
+   CSS). Logseq never reads that file, so it cannot clash with Adwaita for Logseq.
+
+   It ports Adwaita for Logseq (github.com/CR0CKER/adwaita-for-logseq, v0.3.3)
+   with this configuration: yellow accent, "Text Editor (Adwaita scheme)" text
+   colours, Adwaita Sans and Adwaita Mono, close-only window controls, graph
+   picker at the bottom. The plugin's oklab lightness clamps are pre-computed to
+   literal colours (scripts/accent.py), so it paints what the plugin paints.
+
+   Unlike the theme package, this file applies whichever theme is selected; empty
+   it to go back. Selectors target Tine 0.8.1's markup. */
+
+/* ==========================================================================
+   1. Tokens
+   ========================================================================== */
+
+:root {
+  --tine-content-font: "Adwaita Sans", Cantarell, system-ui, sans-serif;
+  --tine-mono-font: "Adwaita Mono", ui-monospace, monospace;
+  /* Keep the emoji face in the editor stack (WebKitGTK crash guard). */
+  --tine-editable-font: "Adwaita Sans", var(--tine-editable-emoji-font), Cantarell, system-ui, sans-serif;
+
+  /* GNOME symbolic icons, verbatim from /usr/share/icons/Adwaita/symbolic/, and
+     Tabler icons (MIT), the set Logseq draws. Used as masks over currentColor. */
+  --adw-icon-window-close: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%20%3Cpath%20d%3D%22m%204%204%20h%201%20h%200.03125%20c%200.253906%200.011719%200.511719%200.128906%200.6875%200.3125%20l%202.28125%202.28125%20l%202.3125%20-2.28125%20c%200.265625%20-0.230469%200.445312%20-0.304688%200.6875%20-0.3125%20h%201%20v%201%20c%200%200.285156%20-0.035156%200.550781%20-0.25%200.75%20l%20-2.28125%202.28125%20l%202.25%202.25%20c%200.1875%200.1875%200.28125%200.453125%200.28125%200.71875%20v%201%20h%20-1%20c%20-0.265625%200%20-0.53125%20-0.09375%20-0.71875%20-0.28125%20l%20-2.28125%20-2.28125%20l%20-2.28125%202.28125%20c%20-0.1875%200.1875%20-0.453125%200.28125%20-0.71875%200.28125%20h%20-1%20v%20-1%20c%200%20-0.265625%200.09375%20-0.53125%200.28125%20-0.71875%20l%202.28125%20-2.25%20l%20-2.28125%20-2.28125%20c%20-0.210938%20-0.195312%20-0.304688%20-0.46875%20-0.28125%20-0.75%20z%20m%200%200%22%2F%3E%20%3C%2Fsvg%3E");
+  --adw-icon-pan-down: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%20%20%20%20%20%3Cpath%20d%3D%22m%203.292969%207.707031%20l%204%204%20c%200.390625%200.390625%201.023437%200.390625%201.414062%200%20l%204%20-4%20c%200.390625%20-0.390625%200.390625%20-1.023437%200%20-1.414062%20s%20-1.023437%20-0.390625%20-1.414062%200%20l%20-3.292969%203.292969%20l%20-3.292969%20-3.292969%20c%20-0.390625%20-0.390625%20-1.023437%20-0.390625%20-1.414062%200%20s%20-0.390625%201.023437%200%201.414062%20z%20m%200%200%22%20fill%3D%22%23222222%22%20fill-rule%3D%22evenodd%22/%3E%20%3C/svg%3E");
+  --adw-icon-view-more: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%20%20%20%20%20%3Cpath%20d%3D%22m%207.996094%200%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%206%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%206%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%200%22%20fill%3D%22%232e3436%22/%3E%20%3C/svg%3E");
+  --adw-icon-chevron: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%209l6%206l6%20-6%22/%3E%3C/svg%3E");
+  --adw-icon-selector: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%209l4%20-4l4%204%22/%3E%3Cpath%20d%3D%22M16%2015l-4%204l-4%20-4%22/%3E%3C/svg%3E");
+  --adw-icon-files: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M15%203v4a1%201%200%200%200%201%201h4%22/%3E%3Cpath%20d%3D%22M18%2017h-7a2%202%200%200%201%20-2%20-2v-10a2%202%200%200%201%202%20-2h4l5%205v7a2%202%200%200%201%20-2%202z%22/%3E%3Cpath%20d%3D%22M16%2017v2a2%202%200%200%201%20-2%202h-7a2%202%200%200%201%20-2%20-2v-10a2%202%200%200%201%202%20-2h2%22/%3E%3C/svg%3E");
+  --adw-icon-file: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M14%203v4a1%201%200%200%200%201%201h4%22/%3E%3Cpath%20d%3D%22M17%2021h-10a2%202%200%200%201%20-2%20-2v-14a2%202%200%200%201%202%20-2h7l5%205v11a2%202%200%200%201%20-2%202z%22/%3E%3C/svg%3E");
+}
+
+html[data-theme="dark"] {
+  --adw-sidebar-bg: #2e2e32;
+  --adw-sidebar-divider: rgba(0, 0, 6, 0.25);
+  --adw-title-fg: #c0bfbc;
+  --adw-heading-fg: #50c9ba;
+  --adw-code-fg: #a0aeed;
+  --adw-quote-border: #b2b2b2;
+  /* Buttons (fill, hover, press) and list rows (hover, selected). */
+  --adw-wc-fill: rgba(255, 255, 255, 0.1);
+  --adw-wc-hover: rgba(255, 255, 255, 0.15);
+  --adw-wc-active: rgba(255, 255, 255, 0.2);
+  --adw-wc-fg: #ffffff;
+  --adw-row-hover: rgba(255, 255, 255, 0.06);
+  --adw-row-active: rgba(255, 255, 255, 0.12);
+}
+html[data-theme="light"] {
+  --adw-sidebar-bg: #ebebed;
+  --adw-sidebar-divider: rgba(0, 0, 6, 0.07);
+  --adw-title-fg: #3d3846;
+  --adw-heading-fg: #007373;
+  --adw-code-fg: #4850b2;
+  --adw-quote-border: #636267;
+  --adw-wc-fill: rgba(0, 0, 6, 0.1);
+  --adw-wc-hover: rgba(0, 0, 6, 0.1);
+  --adw-wc-active: rgba(0, 0, 6, 0.16);
+  --adw-wc-fg: rgba(0, 0, 6, 0.8);
+  --adw-row-hover: rgba(0, 0, 6, 0.06);
+  --adw-row-active: rgba(0, 0, 6, 0.12);
+}
+
+/* ==========================================================================
+   2. Surfaces and text
+   ========================================================================== */
+
+/* Sidebars meet the content with a dark shade, not a light line; the content-side
+   headerbar is flat, the view's own colour with no bottom line (Files, Contacts). */
+.left-sidebar { background: var(--adw-sidebar-bg); border-right-color: var(--adw-sidebar-divider); }
+.right-sidebar { border-left-color: var(--adw-sidebar-divider); }
+.topbar { border-bottom-color: transparent; }
+
+/* Page titles and journal dates: Text Editor's softer body-text grey. */
+.page-title { color: var(--adw-title-fg); }
+
+/* "Text Editor" text colours: teal headings, violet inline code, grey quote bar.
+   Inline code is coloured here, never via --ls-page-inline-code-color: Tine's
+   Logseq shim derives body text (--text-primary) from that token. */
+.heading-text { color: var(--adw-heading-fg); }
+.inline-code { color: var(--adw-code-fg); }
+.md-quote { border-left-color: var(--adw-quote-border); }
+
+/* ==========================================================================
+   3. Toolbar: window controls and tabs
+   ========================================================================== */
+
+/* Window controls: GNOME's round titlebar buttons (24px circles), close only, as
+   in GNOME's default button layout ('appmenu:close'). GNOME puts no separator
+   before them and leaves about the 13px that separator took. */
+.win-controls { gap: 3px; margin-left: 12px; }
+.win-btn:not(.win-close) { display: none; }
+.topbar-sep:has(+ .win-controls),
+.topbar-sep:has(+ * > .win-controls) { display: none; }
+.win-btn {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background: var(--adw-wc-fill);
+  color: var(--adw-wc-fg);
+  cursor: default;
+}
+.win-btn:hover,
+.win-close:hover { background: var(--adw-wc-hover); color: var(--adw-wc-fg); }
+.win-btn:active,
+.win-close:active { background: var(--adw-wc-active); }
+.win-close svg { display: none; }
+.win-close::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  -webkit-mask: var(--adw-icon-window-close) center / 16px 16px no-repeat;
+  mask: var(--adw-icon-window-close) center / 16px 16px no-repeat;
+}
+
+/* Tabs: AdwTabBar labels use the interface font size, 11pt (Tine: 13px). The
+   close button is libadwaita's `.tab-close-button`, a flat 24px circle with
+   window-close-symbolic, shown on the selected tab and on hover. */
+.tab { padding-right: 1px; font-size: 11pt; }
+.tab-close {
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border-radius: 100%;
+  font-size: 0;
+  color: var(--ls-primary-text-color);
+  cursor: default;
+}
+.tab-close::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  -webkit-mask: var(--adw-icon-window-close) center / 16px 16px no-repeat;
+  mask: var(--adw-icon-window-close) center / 16px 16px no-repeat;
+}
+.tab.active .tab-close,
+.tab:hover .tab-close,
+.tab-close:focus-visible { opacity: 1; }
+.tab-close:hover { opacity: 1; background: var(--adw-row-hover); }
+.tab-close:active { background: var(--adw-row-active); }
+
+/* ==========================================================================
+   4. Left sidebar, laid out like Adwaita for Logseq's (GNOME Files' rows)
+   ========================================================================== */
+
+/* Flat buttons (the toolbar's compact workspace picker, New page): a translucent
+   fill with no outline, lighter on hover and press; 9px radius as in Adwaita. */
+.workspace-switcher-btn,
+.new-page-btn {
+  border-color: transparent;
+  border-radius: 9px;
+  background: var(--adw-wc-fill);
+  color: var(--adw-wc-fg);
+}
+.workspace-switcher-btn:hover,
+.new-page-btn:hover { background: var(--adw-wc-hover); }
+.workspace-switcher-btn:active,
+.workspace-switcher-btn[aria-expanded="true"],
+.new-page-btn:active { background: var(--adw-wc-active); }
+
+/* Workspace picker as the sidebar header bar's title, as Files shows "Files":
+   flat, centred, bold 11pt, with GTK's pan-down-symbolic marking a title menu.
+   - .left-sidebar-scroll is a flex column, so the band would shrink to its button;
+     it gets the toolbar's content height (48px less its 1px border) instead, so
+     both header bars share one centre line.
+   - The scroll area keeps a transparent right border for the resize strip
+     (--sidebar-resizer-width) and the sidebar has a 1px edge; the extra left
+     padding centres the title on the whole sidebar.
+   - Sticky: it stays put while the sidebar scrolls, and stays the containing
+     block for its menus. */
+.workspace-sidebar-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 calc(var(--ls-headbar-height) - 1px);
+  height: calc(var(--ls-headbar-height) - 1px);
+  padding: 0 6px 0 calc(6px + var(--sidebar-resizer-width, 7px) + 1px);
+  background: var(--adw-sidebar-bg);
+}
+.workspace-sidebar-header .workspace-switcher { position: static; width: auto; max-width: 100%; }
+.workspace-sidebar-header .workspace-switcher-btn {
+  width: auto;
+  max-width: 100%;
+  height: 34px;
+  padding: 0 10px;
+  gap: 6px;
+  border-color: transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ls-primary-text-color);
+  font-weight: 700;
+  cursor: default;
+}
+.workspace-sidebar-header .workspace-switcher-btn:hover { background: var(--adw-row-hover); }
+.workspace-sidebar-header .workspace-switcher-btn:active,
+.workspace-sidebar-header .workspace-switcher-btn[aria-expanded="true"] { background: var(--adw-row-active); }
+.workspace-sidebar-header .workspace-switcher-name { font-size: 11pt; }
+/* The coloured "W" badge has no GNOME counterpart. */
+.workspace-sidebar-header .workspace-switcher-mark { display: none; }
+.workspace-sidebar-header .workspace-switcher-caret {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  font-size: 0;
+  opacity: 1;
+  background-color: currentColor;
+  -webkit-mask: var(--adw-icon-pan-down) center / 16px 16px no-repeat;
+  mask: var(--adw-icon-pan-down) center / 16px 16px no-repeat;
+}
+/* Tine opens these menus from the picker's left edge at min-width 220px, wider
+   than the sidebar, so the centred title had their right side (Rename, Delete)
+   clipped. Anchor them to the header band, inset like the rows. */
+.workspace-sidebar-header .workspace-menu,
+.workspace-sidebar-header .workspace-quick-menu {
+  top: calc(100% - 4px);
+  left: 6px;
+  right: 6px;
+  min-width: 0;
+  max-width: none;
+}
+
+.left-sidebar-inner { padding: 6px 0 0; color: var(--ls-primary-text-color); }
+
+/* Rows: libadwaita `.navigation-sidebar > row`: 36px, 0 8px padding, 0 6px 2px
+   margin, 9px radius, the interface font at 11pt regular, selected or not. */
+.nav-item,
+.nav-page,
+.nav-all-pages-open {
+  box-sizing: border-box;
+  min-height: 36px;
+  margin: 0 6px 2px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 8px;
+  border-radius: 9px;
+  font-size: 11pt;
+  font-weight: 400;
+  letter-spacing: normal;
+  color: var(--ls-primary-text-color);
+  transition: background-color .1s ease-out;
+}
+.nav-item, .nav-all-pages-open { padding-left: 8px; }
+.nav-all-pages-open { display: flex; align-items: center; gap: 8px; width: calc(100% - 12px); }
+.nav-item:hover,
+.nav-page:hover,
+.nav-all-pages-open:hover { background: var(--adw-row-hover); }
+.nav-item.active,
+.nav-page.active,
+.nav-all-pages-open.active { background: var(--adw-row-active); color: var(--ls-primary-text-color); font-weight: 400; }
+
+/* Row icons, 8px before the label, at 0.7 opacity as in Files
+   (image.sidebarrow-icon). 20px boxes, measured against Files at the same scale:
+   Tabler's glyphs fill ~75% of their box and Adwaita's ~90%, so at Files' 16px
+   they drew ~20% smaller. All pages and Recent rows get Tabler's page icons. */
+.nav-item .nav-icon { width: 20px; height: 20px; flex: 0 0 20px; color: currentColor; opacity: 0.7; }
+.nav-all-pages-open::before,
+#sidebar-recent-list .nav-page::before {
+  content: "";
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  opacity: 0.7;
+  -webkit-mask: var(--adw-icon-files) center / 20px 20px no-repeat;
+  mask: var(--adw-icon-files) center / 20px 20px no-repeat;
+}
+#sidebar-recent-list .nav-page { padding-left: 8px; gap: 8px; }
+#sidebar-recent-list .nav-page::before {
+  -webkit-mask-image: var(--adw-icon-file);
+  mask-image: var(--adw-icon-file);
+}
+
+/* Group order as in Adwaita for Logseq's sidebar: a "Navigations" group
+   (Journals, All pages) first, then Favorites, Recent and Namespaces. */
+.nav-contents { display: flex; flex-direction: column; }
+.nav-contents::before {
+  content: "Navigations";
+  order: -1;
+  padding: 10px 18px 8px;
+  font-size: 10.5pt;
+  color: var(--ls-secondary-text-color);
+}
+.nav-contents > .nav-item { order: 0; }
+.nav-contents > .nav-section:has(> .nav-all-pages-open) { order: 0; margin-top: 0; }
+.nav-contents > .nav-section { order: 1; margin-top: 10px; }
+
+/* Section headers: a soft mixed-case label with a chevron at the end. Tine's
+   strings are upper case; lowercase plus an upper-case first letter restores
+   "Favorites". The chevron turns when the section is collapsed. */
+.nav-section-toggle {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  width: calc(100% - 12px);
+  margin: 0 6px;
+  padding: 8px 40px 8px 12px;
+  border-radius: 9px;
+  font-size: 10.5pt;
+  letter-spacing: normal;
+  text-transform: lowercase;
+  color: var(--ls-secondary-text-color);
+}
+.nav-section-toggle::first-letter { text-transform: uppercase; }
+.nav-section-toggle:hover { background: var(--adw-row-hover); color: var(--ls-secondary-text-color); }
+.nav-section-toggle > .nav-toggle-caret,
+.nav-section-toggle > .nav-section-count { display: none; }
+.nav-section-toggle::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  background-color: currentColor;
+  -webkit-mask: var(--adw-icon-chevron) center / 20px 20px no-repeat;
+  mask: var(--adw-icon-chevron) center / 20px 20px no-repeat;
+  transition: transform .1s ease;
+}
+.nav-section-toggle:has(> .nav-toggle-caret:not(.open))::after { transform: rotate(-90deg); }
+
+/* Favorites: Tine indents leaves by a 14px caret spacer plus a 4px gap, which put
+   the stars 16px right of the other icons; drop the spacer so they share a column. */
+#sidebar-favorites-list .nav-page { gap: 8px; }
+#sidebar-favorites-list .nav-fav-spacer { display: none; }
+.nav-fav-add-group {
+  box-sizing: border-box;
+  width: calc(100% - 12px);
+  margin: 0 6px 2px;
+  padding: 6px 8px;
+  border-radius: 9px;
+}
+.nav-fav-add-group:hover { background: var(--adw-row-hover); }
+/* Group names: Tine sets them in spaced capitals; an input has no ::first-letter,
+   so show them as typed, in the section headers' label style. */
+.nav-fav-group-name {
+  font-size: 10.5pt;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--ls-secondary-text-color);
+  opacity: 1;
+}
+
+/* Graph picker at the bottom, behind a divider, like the plugin's "graph picker
+   at bottom" setting; its menu opens upwards. The "Tine" label is hidden: the
+   window title already says it. */
+.left-sidebar-inner > .sidebar-header {
+  order: 3;
+  margin: 8px 12px 0;
+  padding: 6px 0;
+  border-top: 1px solid var(--ls-border-color);
+}
+.left-sidebar-inner > .sidebar-footer { order: 2; padding: 10px 12px 4px; }
+.left-sidebar-inner > .sidebar-header > .app-logo { display: none; }
+.graph-switch { margin-top: 0; }
+.graph-switch-btn {
+  min-height: 36px;
+  padding: 0 8px;
+  gap: 8px;
+  border-radius: 9px;
+  font-size: 11pt;
+  color: var(--ls-primary-text-color);
+}
+.graph-switch-btn:hover { background: var(--adw-row-hover); }
+.graph-switch-icon { width: 20px; height: 20px; flex: 0 0 20px; color: currentColor; opacity: 0.7; }
+.graph-switch-caret {
+  flex-basis: 20px;
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  opacity: 0.7;
+  background-color: currentColor;
+  -webkit-mask: var(--adw-icon-selector) center / 20px 20px no-repeat;
+  mask: var(--adw-icon-selector) center / 20px 20px no-repeat;
+}
+.graph-switch .graph-switch-menu { top: auto; bottom: 100%; }
+
+/* ==========================================================================
+   5. Right sidebar
+   ========================================================================== */
+
+/* Header buttons (the pane's own ✕ and ⋯, and each item's): flat 24px circles
+   like the tab close button. ✕ gets window-close-symbolic and ⋯ GNOME's
+   view-more-symbolic, the "more" menu icon of Files' path bar. */
+.rs-close,
+.rs-actions-button {
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 100%;
+  background: none;
+  font-size: 0;
+  color: var(--ls-primary-text-color);
+  cursor: default;
+}
+.rs-close::before,
+.rs-actions-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  -webkit-mask: var(--adw-icon-window-close) center / 16px 16px no-repeat;
+  mask: var(--adw-icon-window-close) center / 16px 16px no-repeat;
+}
+.rs-actions-button::before {
+  -webkit-mask-image: var(--adw-icon-view-more);
+  mask-image: var(--adw-icon-view-more);
+}
+.rs-close:hover,
+.rs-actions-button:hover,
+.rs-actions-button:focus-visible,
+.rs-actions-button[aria-expanded="true"] { background: var(--adw-row-hover); color: var(--ls-primary-text-color); }
+.rs-close:active,
+.rs-actions-button:active { background: var(--adw-row-active); }
+.rs-item-actions { gap: 3px; }
+
+/* ==========================================================================
+   6. Motion
+   ========================================================================== */
+
+/* Sidebars slide in as libadwaita's split views do, pushing the content aside.
+   Tine mounts a sidebar on open and removes it on close, so only opening can be
+   animated from CSS (closing: martinkoutecky/tine#806). The negative margin is
+   the sidebar's own width (--mobile-drawer-width, set inline by Tine), so its
+   contents keep their layout while the column grows. Mobile drawers keep Tine's
+   own transition, and reduced motion turns this off. */
+@media (prefers-reduced-motion: no-preference) {
+  .app-container:not([data-mobile-drawer-mode="true"]) .left-sidebar {
+    animation: adw-left-sidebar-in 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .app-container:not([data-mobile-drawer-mode="true"]) .right-sidebar {
+    animation: adw-right-sidebar-in 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+@keyframes adw-left-sidebar-in {
+  from { margin-left: calc(-1 * var(--mobile-drawer-width, 246px)); }
+}
+@keyframes adw-right-sidebar-in {
+  from { margin-right: calc(-1 * var(--mobile-drawer-width, 360px)); }
+}
