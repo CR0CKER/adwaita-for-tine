@@ -90,6 +90,12 @@ html[data-theme="light"] {
    3. Toolbar: window controls and tabs
    ========================================================================== */
 
+/* With the left sidebar closed, Tine puts a compact workspace switcher ("W ▾")
+   into the toolbar. GNOME header bars carry no such control, and the switcher
+   is the sidebar header's title when the sidebar is open, so hide it here.
+   The mobile drawer keeps it: there it's the one-tap path to workspaces. */
+.app-container:not([data-mobile-drawer-mode="true"]) .topbar .workspace-switcher-compact { display: none; }
+
 /* Window controls: GNOME's round titlebar buttons (24px circles), close only, as
    in GNOME's default button layout ('appmenu:close'). GNOME puts no separator
    before them and leaves about the 13px that separator took. */

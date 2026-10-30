@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "id": "me.cr0cker.adwaita",
-  "name": "GNOME Adwaita",
-  "version": "1.0.0",
+  "name": "Adwaita",
+  "version": "1.0.1",
   "apiVersion": "0.2",
-  "description": "GNOME Adwaita surfaces and text, ported from Adwaita for Logseq, with the yellow GNOME accent. Light and dark. Pair with global.css for layout.",
+  "description": "Adwaita surfaces and text, as in GNOME apps, ported from Adwaita for Logseq, with the yellow GNOME accent. Light and dark. Pair with global.css for layout.",
   "author": "CR0CKER",
   "license": "MIT",
   "source": "https://github.com/CR0CKER/adwaita-for-tine",

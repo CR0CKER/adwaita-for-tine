@@ -5,7 +5,7 @@ native GNOME app: Adwaita colours, GNOME Files' sidebar, round GNOME buttons, li
 port of [Adwaita for Logseq](https://github.com/CR0CKER/adwaita-for-logseq) (v0.3.3), so Tine and
 Logseq look the same side by side.
 
-Built for **Tine 0.8.1** on GNOME 49. The CSS targets Tine's markup, which can change
+Built for **Tine 0.8.2** on GNOME 49. The CSS targets Tine's markup, which can change
 between releases.
 
 ## What's in it
@@ -27,7 +27,7 @@ Logseq's **"Text Editor (Adwaita scheme)"** text colours, **Adwaita Sans** and *
 ## Install
 
 1. **Theme package:** in Tine, Settings → Appearance → Theme packages, choose `theme.json`, then
-   select **GNOME Adwaita**.
+   select **Adwaita**.
 2. **CSS:** copy `global.css` to Tine's config folder. Tine reloads it when its window regains
    focus:
 
@@ -65,6 +65,8 @@ Also recommended:
 **Toolbar:**
 - A flat header bar in the page's own colour, with no bottom line.
 - Window controls are GNOME's round 24px buttons, close only, with GTK's own close icon.
+- No workspace switcher in the toolbar when the left sidebar is closed; it lives in the sidebar's
+  header (the mobile drawer keeps Tine's).
 - Tab titles at 11pt, the interface size (Tine uses 13px). Tab close buttons are libadwaita's flat
   24px circle, shown on the selected tab and on hover.
 
@@ -140,3 +142,6 @@ accent colours of its own.
 
 MIT, see [LICENSE](LICENSE). `global.css` embeds GNOME's Adwaita symbolic icons (LGPL-3.0 or
 CC-BY-SA-3.0, GNOME Project) and [Tabler Icons](https://tabler.io/icons) (MIT).
+
+GNOME is a trademark of the GNOME Foundation. This theme is designed for use with GNOME but is not
+affiliated with or endorsed by the GNOME Foundation or the GNOME Project.
