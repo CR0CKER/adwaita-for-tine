@@ -28,6 +28,7 @@
      Tabler icons (MIT), the set Logseq draws. Used as masks over currentColor. */
   --adw-icon-window-close: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%20%3Cpath%20d%3D%22m%204%204%20h%201%20h%200.03125%20c%200.253906%200.011719%200.511719%200.128906%200.6875%200.3125%20l%202.28125%202.28125%20l%202.3125%20-2.28125%20c%200.265625%20-0.230469%200.445312%20-0.304688%200.6875%20-0.3125%20h%201%20v%201%20c%200%200.285156%20-0.035156%200.550781%20-0.25%200.75%20l%20-2.28125%202.28125%20l%202.25%202.25%20c%200.1875%200.1875%200.28125%200.453125%200.28125%200.71875%20v%201%20h%20-1%20c%20-0.265625%200%20-0.53125%20-0.09375%20-0.71875%20-0.28125%20l%20-2.28125%20-2.28125%20l%20-2.28125%202.28125%20c%20-0.1875%200.1875%20-0.453125%200.28125%20-0.71875%200.28125%20h%20-1%20v%20-1%20c%200%20-0.265625%200.09375%20-0.53125%200.28125%20-0.71875%20l%202.28125%20-2.25%20l%20-2.28125%20-2.28125%20c%20-0.210938%20-0.195312%20-0.304688%20-0.46875%20-0.28125%20-0.75%20z%20m%200%200%22%2F%3E%20%3C%2Fsvg%3E");
   --adw-icon-pan-down: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%20%20%20%20%20%3Cpath%20d%3D%22m%203.292969%207.707031%20l%204%204%20c%200.390625%200.390625%201.023437%200.390625%201.414062%200%20l%204%20-4%20c%200.390625%20-0.390625%200.390625%20-1.023437%200%20-1.414062%20s%20-1.023437%20-0.390625%20-1.414062%200%20l%20-3.292969%203.292969%20l%20-3.292969%20-3.292969%20c%20-0.390625%20-0.390625%20-1.023437%20-0.390625%20-1.414062%200%20s%20-0.390625%201.023437%200%201.414062%20z%20m%200%200%22%20fill%3D%22%23222222%22%20fill-rule%3D%22evenodd%22/%3E%20%3C/svg%3E");
+  --adw-icon-pan-end: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%20%20%20%20%20%3Cpath%20d%3D%22m%207%2013%20c%200.265625%200%200.519531%20-0.101562%200.707031%20-0.292969%20l%204%20-4%20c%200.390625%20-0.390625%200.390625%20-1.023437%200%20-1.414062%20l%20-4.003906%20-4%20c%20-0.390625%20-0.386719%20-1.023437%20-0.386719%20-1.414063%200%20c%20-0.386718%200.394531%20-0.386718%201.027343%200.003907%201.414062%20l%203.292969%203.292969%20l%20-3.292969%203.292969%20c%20-0.390625%200.390625%20-0.390625%201.027343%200%201.414062%20c%200.1875%200.191407%200.441406%200.292969%200.707031%200.292969%20z%20m%200%200%22%20fill%3D%22%23222222%22%20fill-rule%3D%22evenodd%22/%3E%20%3C/svg%3E");
   --adw-icon-view-more: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%20%20%20%20%20%3Cpath%20d%3D%22m%207.996094%200%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%206%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%206%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%200%22%20fill%3D%22%232e3436%22/%3E%20%3C/svg%3E");
   --adw-icon-chevron: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%209l6%206l6%20-6%22/%3E%3C/svg%3E");
   --adw-icon-selector: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%209l4%20-4l4%204%22/%3E%3Cpath%20d%3D%22M16%2015l-4%204l-4%20-4%22/%3E%3C/svg%3E");
@@ -552,6 +553,67 @@ html[data-theme="light"] {
 .rs-close:active,
 .rs-actions-button:active { background: var(--adw-row-active); }
 .rs-item-actions { gap: 3px; }
+
+/* No pane header: its "Sidebar" label said nothing and its ✕ repeated the
+   toolbar's sidebar toggle right above it. Its ⋯ menu (collapse, expand and
+   close all) goes with it; each item's own ⋯ keeps "Close others" and
+   "Collapse others". Nils's call, 2026-10-30. */
+.right-sidebar-header { display: none; }
+
+/* Items as a flat list, as in GNOME sidebars, instead of bordered cards: no
+   box, a 1px separator between items, and no rule under the title row. */
+.right-sidebar .rs-item {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+}
+.right-sidebar .rs-item + .rs-item { border-top: 1px solid var(--ls-border-color); }
+.right-sidebar .rs-item-head { border-bottom: 0; }
+.right-sidebar .rs-item-body { padding-top: 0; }
+
+/* The item's expand/collapse arrow as GTK's expander: pan-end-symbolic when
+   collapsed, pan-down-symbolic when open, 16px at 70% opacity, full on hover
+   (libadwaita _expanders.scss). Replaces Tine's small ▸ glyph. */
+.right-sidebar .rs-item-toggle {
+  position: relative;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  font-size: 0;
+  color: var(--ls-primary-text-color);
+  opacity: .7;
+}
+.right-sidebar .rs-item-toggle > span { display: none; }
+.right-sidebar .rs-item-toggle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  -webkit-mask: var(--adw-icon-pan-end) center / 16px 16px no-repeat;
+  mask: var(--adw-icon-pan-end) center / 16px 16px no-repeat;
+}
+.right-sidebar .rs-item-toggle[aria-expanded="true"]::before {
+  -webkit-mask-image: var(--adw-icon-pan-down);
+  mask-image: var(--adw-icon-pan-down);
+}
+.right-sidebar .rs-item-toggle:is(:hover, :focus-visible) { opacity: 1; background: var(--adw-row-hover); }
+.right-sidebar .rs-item-toggle:active { background: var(--adw-row-active); }
+
+/* The right sidebar holds pages like the main view, so it takes the page
+   background (Tine gives it the secondary one); the shade line on its left
+   edge (section 2) separates the two. */
+.right-sidebar { background: var(--ls-primary-background-color); }
+
+/* An item's ⋯ and ✕ appear while the pointer is over the item, or the keyboard
+   is in them, or their menu is open; touch screens keep them visible. */
+.right-sidebar .rs-item-actions { opacity: 0; transition: opacity .15s ease-out; }
+.right-sidebar .rs-item:hover .rs-item-actions,
+.right-sidebar .rs-item-actions:focus-within,
+.right-sidebar .rs-item-actions:has([aria-expanded="true"]) { opacity: 1; }
+@media (hover: none) { .right-sidebar .rs-item-actions { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .right-sidebar .rs-item-actions { transition: none; } }
 
 /* ==========================================================================
    7. Motion

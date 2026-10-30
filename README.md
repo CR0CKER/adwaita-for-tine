@@ -96,7 +96,13 @@ Also recommended:
   not yellow.
 
 **Right sidebar:**
-- Close and menu buttons are flat 24px circles with GNOME's `window-close` and `view-more` icons.
+- No pane header: the "Sidebar" label and its ✕ repeated the toolbar's sidebar button. Its menu
+  (collapse, expand and close all) goes with it; each item's ⋯ still has "Close others" and
+  "Collapse others".
+- Items as a flat list with separators, on the page background, with a shade line against the main
+  view; GTK's expander arrows (`pan-end`/`pan-down`, 16px).
+- Each item's ⋯ and ✕ are flat 24px circles with GNOME's `view-more` and `window-close` icons,
+  shown on hover or keyboard focus (always on touch screens).
 
 **Motion:**
 - Both sidebars slide in when they open (250ms), pushing the page aside, like libadwaita's split
