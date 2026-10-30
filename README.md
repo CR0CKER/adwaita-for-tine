@@ -73,8 +73,8 @@ Also recommended:
   `pan-down` arrow. It stays put while the sidebar scrolls, and lines up with the toolbar's buttons.
 - Files-style rows: 36px, 9px radius, 11pt regular, 20px icons at 70% opacity. The icon size was
   measured against Files at the same scale.
-- Rows sit 12px in from the sidebar's edge, with an 8px gutter on the right so the scrollbar doesn't
-  cover them, even when it widens on hover.
+- Rows sit 12px in from the sidebar's edge. The scrollbar sits at the sidebar's right edge, as in
+  the main view, with a gutter so it doesn't cover the rows, even when it widens on hover.
 - Journals and All pages first, then Favorites, Recent and Namespaces, with mixed-case headings and
   a chevron that turns when a section collapses.
 - Page icons on All pages and the Recent rows; favorites' stars aligned with the other icons.

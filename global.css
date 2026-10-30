@@ -173,9 +173,8 @@ html[data-theme="light"] {
    - .left-sidebar-scroll is a flex column, so the band would shrink to its button;
      it gets the toolbar's content height (48px less its 1px border) instead, so
      both header bars share one centre line.
-   - The scroll area keeps a transparent right border for the resize strip
-     (--sidebar-resizer-width) and the sidebar has a 1px edge; the extra left
-     padding centres the title on the whole sidebar.
+   - The sidebar has a 1px edge on the right; the extra 1px of left padding
+     centres the title on the whole sidebar.
    - Sticky: it stays put while the sidebar scrolls, and stays the containing
      block for its menus. */
 .workspace-sidebar-header {
@@ -188,7 +187,7 @@ html[data-theme="light"] {
   justify-content: center;
   flex: 0 0 calc(var(--ls-headbar-height) - 1px);
   height: calc(var(--ls-headbar-height) - 1px);
-  padding: 0 6px 0 calc(6px + var(--sidebar-resizer-width, 7px) + 1px);
+  padding: 0 6px 0 7px;
   background: var(--adw-sidebar-bg);
 }
 .workspace-sidebar-header .workspace-switcher { position: static; width: auto; max-width: 100%; }
@@ -233,24 +232,29 @@ html[data-theme="light"] {
   max-width: none;
 }
 
-/* 12px from the sidebar's edge to the row highlights, and an 8px gutter on the
-   right: WebKitGTK's overlay scrollbar sits on the scroll area's inner edge and
-   widens on hover, so without it the bar lies on top of the rows' right end. */
-.left-sidebar-inner { padding: 6px 8px 0 6px; color: var(--ls-primary-text-color); }
+/* 12px from the sidebar's edge to the row highlights, and a 15px gutter on the
+   right for WebKitGTK's overlay scrollbar, which widens on hover; without it the
+   bar lies on top of the rows' right end. */
+.left-sidebar-inner { padding: 6px 15px 0 6px; color: var(--ls-primary-text-color); }
 
 /* Only the page list scrolls, as in Files: the workspace title stays at the top
    and New page and the graph picker stay at the bottom. Tine scrolls the whole
    .left-sidebar-scroll; here the inner column is held to the space left under
    the title, so that never overflows, and .nav-contents scrolls instead. Its
-   negative right margin puts its edge, and so the scrollbar, where the outer
-   one was; the matching padding keeps the rows clear of it. Scrollbar colours
-   as Tine gives the outer scroller (app.css, pointer: fine). */
+   negative margins take it to the sidebar's edges, so the scrollbar sits at
+   the edge as in the main view, and the undershoots span the full width; the
+   matching padding keeps the rows where they were. Tine's transparent right
+   border (GH #435) is dropped for that: it kept a classic scrollbar clear of
+   the resize strip, which now lies over the overlay bar's edge (wheel and
+   touchpad scrolling are unaffected). Scrollbar colours as Tine gives the
+   outer scroller (app.css, pointer: fine). */
+.left-sidebar-scroll { border-right-width: 0; }
 .left-sidebar-inner { flex: 1 1 0; min-height: 0; }
 .nav-contents {
   min-height: 0;
   overflow-y: auto;
-  margin: -6px -8px 0 -6px;
-  padding: 6px 8px 0 6px;
+  margin: -6px -15px 0 -6px;
+  padding: 6px 15px 0 6px;
   /* libadwaita's undershoot where the list runs under the title or the bottom
      controls: a 1px line plus a 4px fade in the sidebar's shade colour at 75%
      (_drawing.scss, `undershoot`; sidebar_shade_color is --adw-sidebar-divider).
