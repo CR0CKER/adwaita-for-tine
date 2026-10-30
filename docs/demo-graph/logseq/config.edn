@@ -1,0 +1,3 @@
+{:meta/version 1
+ :preferred-format :markdown
+ :favorites ["project atlas" "reading list" "garden"]}

@@ -1,0 +1,7 @@
+- ## Now
+	- *The Overstory* by Richard Powers
+- ## Next
+	- *A Psalm for the Wild-Built* by Becky Chambers
+	- *The Dispossessed* by Ursula K. Le Guin
+- ## Done
+	- *Piranesi* by Susanna Clarke

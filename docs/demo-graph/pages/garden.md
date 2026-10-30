@@ -1,0 +1,4 @@
+- Raised beds by the fence, planted in autumn.
+- Bed 1: garlic, onions
+- Bed 2: kale, spinach
+- See also [[Recipes]]
