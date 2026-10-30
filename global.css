@@ -498,6 +498,11 @@ html[data-theme="light"] {
 .page-title-row .page-title-actions > * {
   translate: 0 calc(var(--tine-page-title-size, var(--ls-page-title-size)) * 0.09);
 }
+/* A favourite's star in the text colour at 70%, like the sidebar's stars and
+   page icons, instead of Tine's yellow (#f5c518); full strength on hover. It
+   stays filled, so favourited and not still differ at a glance. */
+.page-title-row .fav-star.active { color: var(--ls-primary-text-color); opacity: 0.7; }
+.page-title-row .fav-star.active:is(:hover, :focus-visible) { opacity: 1; }
 
 /* ==========================================================================
    6. Right sidebar

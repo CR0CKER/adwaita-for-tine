@@ -90,7 +90,8 @@ Also recommended:
 
 **Page:**
 - The favourite star sits right after the page title, with the hover options (⋯, Table) after it,
-  all level with the middle of the title's letters.
+  all level with the middle of the title's letters. A favourite's star is filled in the text colour,
+  not yellow.
 
 **Right sidebar:**
 - Close and menu buttons are flat 24px circles with GNOME's `window-close` and `view-more` icons.
