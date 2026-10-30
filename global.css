@@ -233,7 +233,43 @@ html[data-theme="light"] {
   max-width: none;
 }
 
-.left-sidebar-inner { padding: 6px 0 0; color: var(--ls-primary-text-color); }
+/* 12px from the sidebar's edge to the row highlights, and an 8px gutter on the
+   right: WebKitGTK's overlay scrollbar sits on the scroll area's inner edge and
+   widens on hover, so without it the bar lies on top of the rows' right end. */
+.left-sidebar-inner { padding: 6px 8px 0 6px; color: var(--ls-primary-text-color); }
+
+/* Only the page list scrolls, as in Files: the workspace title stays at the top
+   and New page and the graph picker stay at the bottom. Tine scrolls the whole
+   .left-sidebar-scroll; here the inner column is held to the space left under
+   the title, so that never overflows, and .nav-contents scrolls instead. Its
+   negative right margin puts its edge, and so the scrollbar, where the outer
+   one was; the matching padding keeps the rows clear of it. Scrollbar colours
+   as Tine gives the outer scroller (app.css, pointer: fine). */
+.left-sidebar-inner { flex: 1 1 0; min-height: 0; }
+.nav-contents {
+  min-height: 0;
+  overflow-y: auto;
+  margin: -6px -8px 0 -6px;
+  padding: 6px 8px 0 6px;
+  /* libadwaita's undershoot where the list runs under the title or the bottom
+     controls: a 1px line plus a 4px fade in the sidebar's shade colour at 75%
+     (_drawing.scss, `undershoot`; sidebar_shade_color is --adw-sidebar-divider).
+     The two opaque `local` layers scroll with the list and cover each shadow
+     while that end is in view, so a shadow shows only where more is hidden.
+     The margins above take the inner column's padding in, so it spans the
+     full width and starts right under the title. */
+  --adw-undershoot: color-mix(in srgb, var(--adw-sidebar-divider) 75%, transparent);
+  background:
+    linear-gradient(var(--adw-sidebar-bg), var(--adw-sidebar-bg)) top / 100% 5px no-repeat local,
+    linear-gradient(var(--adw-sidebar-bg), var(--adw-sidebar-bg)) bottom / 100% 5px no-repeat local,
+    linear-gradient(var(--adw-undershoot) 1px, transparent 1px) top / 100% 1px no-repeat scroll,
+    linear-gradient(var(--adw-undershoot), transparent) top / 100% 4px no-repeat scroll,
+    linear-gradient(transparent calc(100% - 1px), var(--adw-undershoot) 0) bottom / 100% 1px no-repeat scroll,
+    linear-gradient(transparent, var(--adw-undershoot)) bottom / 100% 4px no-repeat scroll;
+}
+@media (pointer: fine) {
+  .nav-contents { scrollbar-color: var(--scrollbar-thumb) transparent; scrollbar-width: thin; }
+}
 
 /* Rows: libadwaita `.navigation-sidebar > row`: 36px, 0 8px padding, 0 6px 2px
    margin, 9px radius, the interface font at 11pt regular, selected or not. */
@@ -284,16 +320,9 @@ html[data-theme="light"] {
   mask-image: var(--adw-icon-file);
 }
 
-/* Group order as in Adwaita for Logseq's sidebar: a "Navigations" group
-   (Journals, All pages) first, then Favorites, Recent and Namespaces. */
+/* Group order as in Adwaita for Logseq's sidebar: Journals and All pages first,
+   then Favorites, Recent and Namespaces. */
 .nav-contents { display: flex; flex-direction: column; }
-.nav-contents::before {
-  content: "Navigations";
-  order: -1;
-  padding: 10px 18px 8px;
-  font-size: 10.5pt;
-  color: var(--ls-secondary-text-color);
-}
 .nav-contents > .nav-item { order: 0; }
 .nav-contents > .nav-section:has(> .nav-all-pages-open) { order: 0; margin-top: 0; }
 .nav-contents > .nav-section { order: 1; margin-top: 10px; }

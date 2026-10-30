@@ -73,10 +73,15 @@ Also recommended:
   `pan-down` arrow. It stays put while the sidebar scrolls, and lines up with the toolbar's buttons.
 - Files-style rows: 36px, 9px radius, 11pt regular, 20px icons at 70% opacity. The icon size was
   measured against Files at the same scale.
-- A "Navigations" group (Journals, All pages), then Favorites, Recent and Namespaces, with
-  mixed-case headings and a chevron that turns when a section collapses.
+- Rows sit 12px in from the sidebar's edge, with an 8px gutter on the right so the scrollbar doesn't
+  cover them, even when it widens on hover.
+- Journals and All pages first, then Favorites, Recent and Namespaces, with mixed-case headings and
+  a chevron that turns when a section collapses.
 - Page icons on All pages and the Recent rows; favorites' stars aligned with the other icons.
-- The graph picker sits at the bottom behind a divider, and its menu opens upwards.
+- Only the page list scrolls: the workspace title stays at the top, and New page and the graph
+  picker stay at the bottom. The picker sits behind a divider, and its menu opens upwards.
+- libadwaita's undershoot shadow (a 1px line and a 4px fade) at whichever end of the list has more
+  to scroll to, as GNOME's sidebars draw it.
 - Flat buttons (New page), with no outlines. The sidebar meets the page with a dark shade instead of
   a light line.
 
@@ -94,10 +99,13 @@ These need changes in Tine itself, proposed upstream:
 | What | Why CSS can't do it | Upstream |
 |---|---|---|
 | Sidebars close instantly | Tine removes a sidebar from the page the moment it closes, so there's nothing left to animate | [tine#806](https://github.com/martinkoutecky/tine/issues/806) |
+| The sidebar's header row can't be grabbed to move the window | Tine marks drag areas with an HTML attribute in its code, which CSS can't add | [tine#815](https://github.com/martinkoutecky/tine/issues/815) |
 | Ctrl+Q doesn't quit (use Alt+F4) | Tine has no quit command to bind | [tine#805](https://github.com/martinkoutecky/tine/issues/805) |
 
 Also:
-- **"Navigations"** is fixed English text added by the CSS, not one of Tine's translatable strings.
+- **Scrollbars appear when the pointer moves**, not only while scrolling, and widen on hover. That
+  is WebKitGTK's overlay scrollbar; CSS can't change when it shows, and sizing it would turn it into
+  a classic bar that takes up room. (Logseq, on Chromium, only shows them while scrolling.)
 - **Section headings** are re-cased from Tine's upper-case strings ("FAVORITES" → "Favorites"). For
   a language where lower-casing changes meaning, remove that rule.
 - **Not ported from Adwaita for Logseq:** the merged headerbar, the ☰ app menu and the search button
