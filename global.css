@@ -33,6 +33,7 @@
   --adw-icon-selector: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%209l4%20-4l4%204%22/%3E%3Cpath%20d%3D%22M16%2015l-4%204l-4%20-4%22/%3E%3C/svg%3E");
   --adw-icon-files: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M15%203v4a1%201%200%200%200%201%201h4%22/%3E%3Cpath%20d%3D%22M18%2017h-7a2%202%200%200%201%20-2%20-2v-10a2%202%200%200%201%202%20-2h4l5%205v7a2%202%200%200%201%20-2%202z%22/%3E%3Cpath%20d%3D%22M16%2017v2a2%202%200%200%201%20-2%202h-7a2%202%200%200%201%20-2%20-2v-10a2%202%200%200%201%202%20-2h2%22/%3E%3C/svg%3E");
   --adw-icon-file: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M14%203v4a1%201%200%200%200%201%201h4%22/%3E%3Cpath%20d%3D%22M17%2021h-10a2%202%200%200%201%20-2%20-2v-14a2%202%200%200%201%202%20-2h7l5%205v11a2%202%200%200%201%20-2%202z%22/%3E%3C/svg%3E");
+  --adw-icon-star: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2017.75l-6.172%203.245l1.179%20-6.873l-5%20-4.867l6.9%20-1l3.086%20-6.253l3.086%206.253l6.9%201l-5%204.867l1.179%206.873z%22/%3E%3C/svg%3E");
 }
 
 html[data-theme="dark"] {
@@ -370,6 +371,24 @@ html[data-theme="light"] {
    the stars 16px right of the other icons; drop the spacer so they share a column. */
 #sidebar-favorites-list .nav-page { gap: 8px; }
 #sidebar-favorites-list .nav-fav-spacer { display: none; }
+/* Favorites' ⭐ becomes Tabler's outline star, drawn like the Recent rows' page
+   icon: a 20px box 8px into the row (Tine pads favorite rows 6px inline, hence
+   the 2px margin), at 70% opacity in the text colour, 8px before the label.
+   Tine renders the ⭐ as a Twemoji <img>; hiding it also drops the space after
+   it, because a collapsible space at the start of a line is removed. Rows with
+   their own page icon keep it. */
+#sidebar-favorites-list .nav-page:has(> .nav-page-label > img.emoji[alt^="\2B50"]:first-child)::before {
+  content: "";
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin-left: 2px;
+  background-color: currentColor;
+  opacity: 0.7;
+  -webkit-mask: var(--adw-icon-star) center / 20px 20px no-repeat;
+  mask: var(--adw-icon-star) center / 20px 20px no-repeat;
+}
+#sidebar-favorites-list .nav-page-label > img.emoji[alt^="\2B50"]:first-child { display: none; }
 .nav-fav-add-group {
   box-sizing: border-box;
   width: calc(100% - 12px);
@@ -378,6 +397,45 @@ html[data-theme="light"] {
   border-radius: 9px;
 }
 .nav-fav-add-group:hover { background: var(--adw-row-hover); }
+/* "+ New group" shows only while the pointer is over the Favorites section, or
+   while the keyboard is in it, so it never hides from Tab. Hidden, its row
+   collapses too, so the gap before Recent is the normal section gap; height
+   and opacity animate together, so Recent glides rather than jumps. It can't
+   flicker: while the row is open the pointer is still inside the section.
+   Touch screens have no hover, so it stays visible there. A block, not
+   Tine's inline-block: a collapsed inline-block still keeps a line box the
+   height of the sidebar's text, which left the gap a line too tall. */
+.nav-section:has(> [data-sidebar-section="favorites"]) .nav-fav-add-group {
+  display: block;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity .2s ease-out, max-height .2s ease-out, padding .2s ease-out,
+    margin .2s ease-out, background-color .1s ease-out;
+}
+.nav-section:has(> [data-sidebar-section="favorites"]):is(:hover, :focus-within) .nav-fav-add-group {
+  max-height: 32px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 2px;
+  opacity: .5;
+}
+.nav-section:has(> [data-sidebar-section="favorites"]) .nav-fav-add-group:is(:hover, :focus-visible) { opacity: 1; }
+@media (hover: none) {
+  .nav-section:has(> [data-sidebar-section="favorites"]) .nav-fav-add-group {
+    max-height: 32px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 2px;
+    opacity: .5;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-section:has(> [data-sidebar-section="favorites"]) .nav-fav-add-group { transition: none; }
+}
 /* Group names: Tine sets them in spaced capitals; an input has no ::first-letter,
    so show them as typed, in the section headers' label style. */
 .nav-fav-group-name {
@@ -423,7 +481,26 @@ html[data-theme="light"] {
 .graph-switch .graph-switch-menu { top: auto; bottom: 100%; }
 
 /* ==========================================================================
-   5. Right sidebar
+   5. Page
+   ========================================================================== */
+
+/* The favourite star sits right after the page title, with the hover options
+   (carry-over, tag table, ⋯) after it. Tine renders the title's and the
+   actions' wrappers as `display: contents`, so all of them are items of
+   .page-title-row and `order` can move the star; in Tine's order it came last,
+   behind options that are invisible until hover but still take their room. */
+.page-title-row .page-title-actions > * { order: 2; }
+.page-title-row .page-title-actions > .fav-star { order: 1; }
+/* The row centres its items on the title's line box, which puts them above the
+   middle of the letters (the cap-height middle sits lower in a 1.5 line, and the
+   lowercase lower still). Nudge them down by a fraction of the title size, so
+   it holds when the size changes: measured, it centres them between the two. */
+.page-title-row .page-title-actions > * {
+  translate: 0 calc(var(--tine-page-title-size, var(--ls-page-title-size)) * 0.09);
+}
+
+/* ==========================================================================
+   6. Right sidebar
    ========================================================================== */
 
 /* Header buttons (the pane's own ✕ and ⋯, and each item's): flat 24px circles
@@ -466,7 +543,7 @@ html[data-theme="light"] {
 .rs-item-actions { gap: 3px; }
 
 /* ==========================================================================
-   6. Motion
+   7. Motion
    ========================================================================== */
 
 /* Sidebars slide in as libadwaita's split views do, pushing the content aside.

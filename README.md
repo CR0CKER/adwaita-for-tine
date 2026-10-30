@@ -77,13 +77,20 @@ Also recommended:
   the main view, with a gutter so it doesn't cover the rows, even when it widens on hover.
 - Journals and All pages first, then Favorites, Recent and Namespaces, with mixed-case headings and
   a chevron that turns when a section collapses.
-- Page icons on All pages and the Recent rows; favorites' stars aligned with the other icons.
+- Page icons on All pages and the Recent rows. Favorites get a monochrome outline star in place of
+  the yellow emoji, in the same column as the other icons.
+- "+ New group" slides and fades in only while the pointer (or keyboard focus) is in Favorites;
+  always shown on touch screens.
 - Only the page list scrolls: the workspace title stays at the top, and New page and the graph
   picker stay at the bottom. The picker sits behind a divider, and its menu opens upwards.
 - libadwaita's undershoot shadow (a 1px line and a 4px fade) at whichever end of the list has more
   to scroll to, as GNOME's sidebars draw it.
 - Flat buttons (New page), with no outlines. The sidebar meets the page with a dark shade instead of
   a light line.
+
+**Page:**
+- The favourite star sits right after the page title, with the hover options (⋯, Table) after it,
+  all level with the middle of the title's letters.
 
 **Right sidebar:**
 - Close and menu buttons are flat 24px circles with GNOME's `window-close` and `view-more` icons.
