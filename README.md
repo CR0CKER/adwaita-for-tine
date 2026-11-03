@@ -21,7 +21,7 @@ Tine's plugins can't inject CSS, so a plugin isn't an option.
 
 The configuration is fixed rather than set in options: the **yellow** GNOME accent, Adwaita for
 Logseq's **"Text Editor (Adwaita scheme)"** text colours, **Adwaita Sans** and **Adwaita Mono**,
-**close-only** window controls, and the **graph picker at the bottom**. To change the accent, see
+**close-only** window controls, and the **graph picker as the sidebar's title**. To change the accent, see
 [Changing the accent](#changing-the-accent).
 
 ## Install
@@ -65,14 +65,17 @@ Also recommended:
 **Toolbar:**
 - A flat header bar in the page's own colour, with no bottom line.
 - Window controls are GNOME's round 24px buttons, close only, with GTK's own close icon.
-- No workspace switcher in the toolbar when the left sidebar is closed; it lives in the sidebar's
-  header (the mobile drawer keeps Tine's).
+- The workspace picker is a small outlined "W" at the toolbar's left end, drawn, coloured and spaced
+  like the toolbar's other icons, whether the left sidebar is open or closed (the mobile drawer
+  keeps Tine's layout).
+- No light/dark switch in the toolbar or its narrow-window menu: GNOME apps follow the system
+  style. Switch with `t t` or in Settings.
 - Tab titles at 11pt, the interface size (Tine uses 13px). Tab close buttons are libadwaita's flat
   24px circle, shown on the selected tab and on hover.
 
 **Left sidebar**, laid out like Adwaita for Logseq's, which follows GNOME Files:
-- The workspace picker is the sidebar header bar's title: flat, centred, bold, with GTK's
-  `pan-down` arrow. It stays put while the sidebar scrolls, and lines up with the toolbar's buttons.
+- The graph picker is the sidebar header bar's title: flat, centred, bold, with GTK's `pan-down`
+  arrow. It stays put while the sidebar scrolls, and lines up with the toolbar's buttons.
 - Files-style rows: 36px, 9px radius, 11pt regular, 20px icons at 70% opacity. The icon size was
   measured against Files at the same scale.
 - Rows sit 12px in from the sidebar's edge. The scrollbar sits at the sidebar's right edge, as in
@@ -83,8 +86,7 @@ Also recommended:
   the yellow emoji, in the same column as the other icons.
 - "+ New group" slides and fades in only while the pointer (or keyboard focus) is in Favorites;
   always shown on touch screens.
-- Only the page list scrolls: the workspace title stays at the top, and New page and the graph
-  picker stay at the bottom. The picker sits behind a divider, and its menu opens upwards.
+- Only the page list scrolls: the graph title stays at the top, and New page stays at the bottom.
 - libadwaita's undershoot shadow (a 1px line and a 4px fade) at whichever end of the list has more
   to scroll to, as GNOME's sidebars draw it.
 - Flat buttons (New page), with no outlines. The sidebar meets the page with a dark shade instead of
@@ -124,6 +126,11 @@ Also:
   a classic bar that takes up room. (Logseq, on Chromium, only shows them while scrolling.)
 - **Section headings** are re-cased from Tine's upper-case strings ("FAVORITES" → "Favorites"). For
   a language where lower-casing changes meaning, remove that rule.
+- **The toolbar's workspace picker is partly an overlay.** With the left sidebar open, Tine draws
+  the picker only in the sidebar, so the theme lifts that one onto the toolbar and keeps a fixed
+  30px slot for it. It appears at its place as the sidebar starts sliding in.
+- **The light/dark button is found by its tooltip** ("Toggle theme (t t)", and Tine's Chinese
+  one); if Tine rewords it, the button comes back.
 - **Not ported from Adwaita for Logseq:** the merged headerbar, the ☰ app menu and the search button
   in the sidebar header. They would need markup Tine doesn't have.
 

@@ -31,7 +31,6 @@
   --adw-icon-pan-end: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%20%20%20%20%20%3Cpath%20d%3D%22m%207%2013%20c%200.265625%200%200.519531%20-0.101562%200.707031%20-0.292969%20l%204%20-4%20c%200.390625%20-0.390625%200.390625%20-1.023437%200%20-1.414062%20l%20-4.003906%20-4%20c%20-0.390625%20-0.386719%20-1.023437%20-0.386719%20-1.414063%200%20c%20-0.386718%200.394531%20-0.386718%201.027343%200.003907%201.414062%20l%203.292969%203.292969%20l%20-3.292969%203.292969%20c%20-0.390625%200.390625%20-0.390625%201.027343%200%201.414062%20c%200.1875%200.191407%200.441406%200.292969%200.707031%200.292969%20z%20m%200%200%22%20fill%3D%22%23222222%22%20fill-rule%3D%22evenodd%22/%3E%20%3C/svg%3E");
   --adw-icon-view-more: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%20%20%20%20%20%3Cpath%20d%3D%22m%207.996094%200%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%206%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%206%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%200%22%20fill%3D%22%232e3436%22/%3E%20%3C/svg%3E");
   --adw-icon-chevron: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%209l6%206l6%20-6%22/%3E%3C/svg%3E");
-  --adw-icon-selector: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%209l4%20-4l4%204%22/%3E%3Cpath%20d%3D%22M16%2015l-4%204l-4%20-4%22/%3E%3C/svg%3E");
   --adw-icon-files: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M15%203v4a1%201%200%200%200%201%201h4%22/%3E%3Cpath%20d%3D%22M18%2017h-7a2%202%200%200%201%20-2%20-2v-10a2%202%200%200%201%202%20-2h4l5%205v7a2%202%200%200%201%20-2%202z%22/%3E%3Cpath%20d%3D%22M16%2017v2a2%202%200%200%201%20-2%202h-7a2%202%200%200%201%20-2%20-2v-10a2%202%200%200%201%202%20-2h2%22/%3E%3C/svg%3E");
   --adw-icon-file: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M14%203v4a1%201%200%200%200%201%201h4%22/%3E%3Cpath%20d%3D%22M17%2021h-10a2%202%200%200%201%20-2%20-2v-14a2%202%200%200%201%202%20-2h7l5%205v11a2%202%200%200%201%20-2%202z%22/%3E%3C/svg%3E");
   --adw-icon-star: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2017.75l-6.172%203.245l1.179%20-6.873l-5%20-4.867l6.9%20-1l3.086%20-6.253l3.086%206.253l6.9%201l-5%204.867l1.179%206.873z%22/%3E%3C/svg%3E");
@@ -91,11 +90,79 @@ html[data-theme="light"] {
    3. Toolbar: window controls and tabs
    ========================================================================== */
 
-/* With the left sidebar closed, Tine puts a compact workspace switcher ("W ▾")
-   into the toolbar. GNOME header bars carry no such control, and the switcher
-   is the sidebar header's title when the sidebar is open, so hide it here.
-   The mobile drawer keeps it: there it's the one-tap path to workspaces. */
-.app-container:not([data-mobile-drawer-mode="true"]) .topbar .workspace-switcher-compact { display: none; }
+/* Workspace picker: Tine's compact "W" button at the toolbar's left end,
+   before the navigation buttons, in both sidebar states. Desktop only; the
+   mobile drawer keeps Tine's layout.
+   - Sidebar closed: Tine draws it in the toolbar; it only moves to the front.
+   - Sidebar open: Tine draws it in the sidebar instead, which CSS can't move,
+     so that one is lifted onto the toolbar (position: fixed, past the sidebar's
+     width), shown compact, and the toolbar keeps an empty slot of its size.
+     Tine sets --mobile-drawer-width on the sidebar, so the copy follows a
+     resize. The slot is fixed: the compact button's width is constant. */
+.app-container:not([data-mobile-drawer-mode="true"]) .topbar .workspace-switcher-compact { order: -2; }
+.app-container:not([data-mobile-drawer-mode="true"]):has(.workspace-sidebar-header .workspace-switcher) .topbar::before {
+  content: "";
+  order: -2;
+  flex: 0 0 30px;
+}
+.app-container:not([data-mobile-drawer-mode="true"]) .workspace-sidebar-header {
+  position: fixed;
+  z-index: 50;
+  top: calc((var(--ls-headbar-height) - 30px) / 2);
+  left: calc(var(--mobile-drawer-width) + 14px);
+  padding: 0;
+}
+.app-container:not([data-mobile-drawer-mode="true"]) .workspace-sidebar-header .workspace-switcher-name { display: none; }
+/* Sized, spaced and coloured like the toolbar's icon buttons (Tine's .icon-btn
+   around an 18px .nav-icon in --text-muted): a 30px square, no fill or outline,
+   a soft background on hover. The toolbar's 8px gap less 6px gives the 2px the
+   navigation buttons keep between themselves. The "W" badge is drawn like the
+   sidebar icon's outlined rectangle: 15px, a 1.25px line, 2px corners, with a
+   regular-weight letter; no ▾. */
+.app-container:not([data-mobile-drawer-mode="true"]) .topbar .workspace-switcher-compact { margin-right: -6px; }
+.app-container:not([data-mobile-drawer-mode="true"]):has(.workspace-sidebar-header .workspace-switcher) .topbar::before { margin-right: -6px; }
+.topbar .workspace-switcher-btn,
+.app-container:not([data-mobile-drawer-mode="true"]) .workspace-sidebar-header .workspace-switcher-btn {
+  box-sizing: border-box;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  gap: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+}
+.topbar .workspace-switcher-btn:hover,
+.topbar .workspace-switcher-btn[aria-expanded="true"],
+.app-container:not([data-mobile-drawer-mode="true"]) .workspace-sidebar-header .workspace-switcher-btn:hover,
+.app-container:not([data-mobile-drawer-mode="true"]) .workspace-sidebar-header .workspace-switcher-btn[aria-expanded="true"] {
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+}
+.topbar .workspace-switcher-mark,
+.app-container:not([data-mobile-drawer-mode="true"]) .workspace-sidebar-header .workspace-switcher-mark {
+  box-sizing: border-box;
+  width: 15px;
+  height: 15px;
+  border: 1.25px solid currentColor;
+  border-radius: 2px;
+  background: transparent;
+  color: currentColor;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 1;
+}
+.topbar .workspace-switcher-caret,
+.app-container:not([data-mobile-drawer-mode="true"]) .workspace-sidebar-header .workspace-switcher-caret { display: none; }
+
+/* No light/dark switch in the toolbar: GNOME apps follow the system style and
+   keep any override in their preferences. Tine's button has no class of its
+   own, so it is matched by its tooltip in each shipped locale; the narrow-window
+   overflow menu's entry has a stable data attribute. "t t" and Settings stay. */
+.topbar .topbar-optional-action:is([title="Toggle theme (t t)"], [title="切换主题（t t）"]),
+[data-topbar-overflow-action="theme"] { display: none; }
 
 /* Window controls: GNOME's round titlebar buttons (24px circles), close only, as
    in GNOME's default button layout ('appmenu:close'). GNOME puts no separator
@@ -161,84 +228,16 @@ html[data-theme="light"] {
    4. Left sidebar, laid out like Adwaita for Logseq's (GNOME Files' rows)
    ========================================================================== */
 
-/* Flat buttons (the toolbar's compact workspace picker, New page): a translucent
-   fill with no outline, lighter on hover and press; 9px radius as in Adwaita. */
-.workspace-switcher-btn,
+/* Flat button (New page): a translucent fill with no outline, lighter on hover
+   and press; 9px radius as in Adwaita. */
 .new-page-btn {
   border-color: transparent;
   border-radius: 9px;
   background: var(--adw-wc-fill);
   color: var(--adw-wc-fg);
 }
-.workspace-switcher-btn:hover,
 .new-page-btn:hover { background: var(--adw-wc-hover); }
-.workspace-switcher-btn:active,
-.workspace-switcher-btn[aria-expanded="true"],
 .new-page-btn:active { background: var(--adw-wc-active); }
-
-/* Workspace picker as the sidebar header bar's title, as Files shows "Files":
-   flat, centred, bold 11pt, with GTK's pan-down-symbolic marking a title menu.
-   - .left-sidebar-scroll is a flex column, so the band would shrink to its button;
-     it gets the toolbar's content height (48px less its 1px border) instead, so
-     both header bars share one centre line.
-   - The sidebar has a 1px edge on the right; the extra 1px of left padding
-     centres the title on the whole sidebar.
-   - Sticky: it stays put while the sidebar scrolls, and stays the containing
-     block for its menus. */
-.workspace-sidebar-header {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 calc(var(--ls-headbar-height) - 1px);
-  height: calc(var(--ls-headbar-height) - 1px);
-  padding: 0 6px 0 7px;
-  background: var(--adw-sidebar-bg);
-}
-.workspace-sidebar-header .workspace-switcher { position: static; width: auto; max-width: 100%; }
-.workspace-sidebar-header .workspace-switcher-btn {
-  width: auto;
-  max-width: 100%;
-  height: 34px;
-  padding: 0 10px;
-  gap: 6px;
-  border-color: transparent;
-  border-radius: 9px;
-  background: transparent;
-  color: var(--ls-primary-text-color);
-  font-weight: 700;
-  cursor: default;
-}
-.workspace-sidebar-header .workspace-switcher-btn:hover { background: var(--adw-row-hover); }
-.workspace-sidebar-header .workspace-switcher-btn:active,
-.workspace-sidebar-header .workspace-switcher-btn[aria-expanded="true"] { background: var(--adw-row-active); }
-.workspace-sidebar-header .workspace-switcher-name { font-size: 11pt; }
-/* The coloured "W" badge has no GNOME counterpart. */
-.workspace-sidebar-header .workspace-switcher-mark { display: none; }
-.workspace-sidebar-header .workspace-switcher-caret {
-  flex: 0 0 16px;
-  width: 16px;
-  height: 16px;
-  font-size: 0;
-  opacity: 1;
-  background-color: currentColor;
-  -webkit-mask: var(--adw-icon-pan-down) center / 16px 16px no-repeat;
-  mask: var(--adw-icon-pan-down) center / 16px 16px no-repeat;
-}
-/* Tine opens these menus from the picker's left edge at min-width 220px, wider
-   than the sidebar, so the centred title had their right side (Rename, Delete)
-   clipped. Anchor them to the header band, inset like the rows. */
-.workspace-sidebar-header .workspace-menu,
-.workspace-sidebar-header .workspace-quick-menu {
-  top: calc(100% - 4px);
-  left: 6px;
-  right: 6px;
-  min-width: 0;
-  max-width: none;
-}
 
 /* 12px from the sidebar's edge to the row highlights, and a 15px gutter on the
    right for WebKitGTK's overlay scrollbar, which widens on hover; without it the
@@ -453,39 +452,61 @@ html[data-theme="light"] {
   opacity: 1;
 }
 
-/* Graph picker at the bottom, behind a divider, like the plugin's "graph picker
-   at bottom" setting; its menu opens upwards. The "Tine" label is hidden: the
-   window title already says it. */
+/* Graph picker as the sidebar header bar's title, as Files shows "Files":
+   flat, centred, bold 11pt, with GTK's pan-down-symbolic marking a title menu.
+   - The band gets the toolbar's content height (48px less its 1px border), so
+     both header bars share one centre line; its negative margins take it over
+     the inner column's padding, and the extra 1px on the left centres the
+     title on the whole sidebar (the sidebar has a 1px edge on the right).
+   - It stays put while the page list scrolls (only .nav-contents scrolls).
+   - The "Tine" label is hidden: the window title already says it. The folder
+     icon goes too, as a title has none. */
 .left-sidebar-inner > .sidebar-header {
-  order: 3;
-  margin: 8px 12px 0;
-  padding: 6px 0;
-  border-top: 1px solid var(--ls-border-color);
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 calc(var(--ls-headbar-height) - 1px);
+  height: calc(var(--ls-headbar-height) - 1px);
+  margin: -6px -15px 0 -6px;
+  padding: 0 6px 0 7px;
+  background: var(--adw-sidebar-bg);
 }
-.left-sidebar-inner > .sidebar-footer { order: 2; padding: 10px 12px 4px; }
+.left-sidebar-inner > .sidebar-header + .nav-contents { margin-top: 0; }
+.left-sidebar-inner > .sidebar-footer { order: 2; padding: 10px 12px 12px; }
 .left-sidebar-inner > .sidebar-header > .app-logo { display: none; }
-.graph-switch { margin-top: 0; }
-.graph-switch-btn {
-  min-height: 36px;
-  padding: 0 8px;
-  gap: 8px;
+.left-sidebar-inner > .sidebar-header .graph-switch { position: static; max-width: 100%; margin-top: 0; }
+.left-sidebar-inner > .sidebar-header .graph-switch-btn {
+  width: auto;
+  max-width: 100%;
+  height: 34px;
+  padding: 0 10px;
+  gap: 6px;
   border-radius: 9px;
   font-size: 11pt;
+  font-weight: 700;
   color: var(--ls-primary-text-color);
+  cursor: default;
 }
-.graph-switch-btn:hover { background: var(--adw-row-hover); }
-.graph-switch-icon { width: 20px; height: 20px; flex: 0 0 20px; color: currentColor; opacity: 0.7; }
-.graph-switch-caret {
-  flex-basis: 20px;
-  width: 20px;
-  height: 20px;
+.left-sidebar-inner > .sidebar-header .graph-switch-btn:hover { background: var(--adw-row-hover); }
+.left-sidebar-inner > .sidebar-header .graph-switch-icon { display: none; }
+.left-sidebar-inner > .sidebar-header .graph-switch-caret {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
   font-size: 0;
-  opacity: 0.7;
+  opacity: 1;
   background-color: currentColor;
-  -webkit-mask: var(--adw-icon-selector) center / 20px 20px no-repeat;
-  mask: var(--adw-icon-selector) center / 20px 20px no-repeat;
+  -webkit-mask: var(--adw-icon-pan-down) center / 16px 16px no-repeat;
+  mask: var(--adw-icon-pan-down) center / 16px 16px no-repeat;
 }
-.graph-switch .graph-switch-menu { top: auto; bottom: 100%; }
+/* Its menu hangs from the band, inset like the rows. */
+.left-sidebar-inner > .sidebar-header .graph-switch .graph-switch-menu {
+  top: calc(100% - 4px);
+  left: 6px;
+  right: 6px;
+}
 
 /* ==========================================================================
    5. Page
