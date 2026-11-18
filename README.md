@@ -125,13 +125,14 @@ Also recommended:
 
 ## Known limits
 
-These need changes in Tine itself, proposed upstream:
+These need changes in Tine itself, proposed upstream. Two are fixed in Tine 0.10.0-beta.1, not yet
+in a stable release:
 
 | What | Why CSS can't do it | Upstream |
 |---|---|---|
 | Sidebars close instantly | Tine removes a sidebar from the page the moment it closes, so there's nothing left to animate | [tine#806](https://github.com/martinkoutecky/tine/issues/806) |
-| The sidebar's header row can't be grabbed to move the window | Tine marks drag areas with an HTML attribute in its code, which CSS can't add | [tine#815](https://github.com/martinkoutecky/tine/issues/815) |
-| Ctrl+Q doesn't quit (use Alt+F4) | Tine has no quit command to bind | [tine#805](https://github.com/martinkoutecky/tine/issues/805) |
+| The sidebar's header row can't be grabbed to move the window | Tine marks drag areas with an HTML attribute in its code, which CSS can't add | [tine#815](https://github.com/martinkoutecky/tine/issues/815), fixed in 0.10.0-beta.1 |
+| Ctrl+Q doesn't quit (use Alt+F4) | Tine has no quit command to bind | [tine#805](https://github.com/martinkoutecky/tine/issues/805), fixed in 0.10.0-beta.1 |
 
 Also:
 - **Scrollbars appear when the pointer moves**, not only while scrolling, and widen on hover. That
