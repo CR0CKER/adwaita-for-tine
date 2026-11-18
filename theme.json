@@ -56,6 +56,9 @@
       "--ls-page-mark-color": "#000000"
     }
   },
-  "screenshots": [],
+  "screenshots": [
+    "https://raw.githubusercontent.com/CR0CKER/adwaita-for-tine/8a15feb8bd25a1933c7fc745b67f16afbcedf743/docs/screenshots/light.png",
+    "https://raw.githubusercontent.com/CR0CKER/adwaita-for-tine/8a15feb8bd25a1933c7fc745b67f16afbcedf743/docs/screenshots/dark.png"
+  ],
   "aiDevelopment": "primary"
 }
