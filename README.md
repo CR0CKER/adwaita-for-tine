@@ -166,8 +166,9 @@ accent colours of its own.
 
 ## License
 
-MIT, see [LICENSE](LICENSE). `global.css` embeds GNOME's Adwaita symbolic icons (LGPL-3.0 or
-CC-BY-SA-3.0, GNOME Project) and [Tabler Icons](https://tabler.io/icons) (MIT).
+MIT, see [LICENSE](LICENSE). `global.css` embeds six of GNOME's Adwaita symbolic icons, from
+adwaita-icon-theme 49.0 (LGPL-3.0-only or CC-BY-SA-3.0, GNOME Project), and
+[Tabler Icons](https://tabler.io/icons) (MIT); LICENSE lists each.
 
 GNOME is a trademark of the GNOME Foundation. This theme is designed for use with GNOME but is not
 affiliated with or endorsed by the GNOME Foundation or the GNOME Project.

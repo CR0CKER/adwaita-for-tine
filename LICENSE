@@ -24,8 +24,10 @@ SOFTWARE.
 
 global.css embeds icons from third parties, under their own licenses:
 
-- GNOME's Adwaita symbolic icons (window-close, pan-down, view-more), from the
-  GNOME Project's adwaita-icon-theme, under LGPL-3.0 or CC-BY-SA-3.0.
-  https://www.gnome.org
+- GNOME's Adwaita symbolic icons (window-close, window-maximize,
+  window-restore, pan-down, pan-end, view-more), their paths copied unchanged
+  from the GNOME Project's adwaita-icon-theme 49.0, under LGPL-3.0-only or
+  CC-BY-SA-3.0.
+  https://gitlab.gnome.org/GNOME/adwaita-icon-theme/-/tree/49.0
 - Tabler Icons (files, file, star, chevron-down), under the MIT License,
   Copyright (c) 2020-2024 Paweł Kuna. https://tabler.io/icons
