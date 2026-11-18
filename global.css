@@ -12,8 +12,7 @@
    literal colours (scripts/accent.py), so it paints what the plugin paints.
 
    Unlike the theme package, this file applies whichever theme is selected; empty
-   it to go back. Selectors target Tine 0.8.1's markup; section 7 (dialogs)
-   targets 0.9.0's. */
+   it to go back. Selectors target Tine 0.9.0's markup. */
 
 /* ==========================================================================
    1. Tokens
@@ -334,6 +333,45 @@ html[data-theme="light"] {
   mask-image: var(--adw-icon-file);
 }
 
+/* Open tabs (Tine 0.9.0, shown with two or more tabs): rows like Recent's,
+   with the same page icon at the start of the title, 8px before it, and the
+   row's ✕ as the tab strip's close button (a flat 24px circle with
+   window-close-symbolic). Nested tabs keep Tine's inline indent. On a hovered
+   row the ✕'s hover takes the selected shade, so it still stands out. */
+#sidebar-tabs-list .nav-tab { padding-left: 8px; }
+#sidebar-tabs-list .nav-tab-main { gap: 8px; }
+#sidebar-tabs-list .nav-tab-main::before {
+  content: "";
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  opacity: 0.7;
+  -webkit-mask: var(--adw-icon-file) center / 20px 20px no-repeat;
+  mask: var(--adw-icon-file) center / 20px 20px no-repeat;
+}
+#sidebar-tabs-list .nav-tab-close {
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border-radius: 100%;
+  font-size: 0;
+  color: var(--ls-primary-text-color);
+  cursor: default;
+}
+#sidebar-tabs-list .nav-tab-close::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  -webkit-mask: var(--adw-icon-window-close) center / 16px 16px no-repeat;
+  mask: var(--adw-icon-window-close) center / 16px 16px no-repeat;
+}
+#sidebar-tabs-list .nav-tab-close:is(:hover, :active) { background: var(--adw-row-active); color: var(--ls-primary-text-color); }
+
 /* Group order as in Adwaita for Logseq's sidebar: Journals and All pages first,
    then Favorites, Recent and Namespaces. */
 .nav-contents { display: flex; flex-direction: column; }
@@ -374,7 +412,9 @@ html[data-theme="light"] {
   mask: var(--adw-icon-chevron) center / 20px 20px no-repeat;
   transition: transform .1s ease;
 }
-.nav-section-toggle:has(> .nav-toggle-caret:not(.open))::after { transform: rotate(-90deg); }
+/* Tine 0.9.0 draws the caret as a ReferenceDisclosure, marked .collapsed when
+   the section is closed (0.8.x marked it .open when open). */
+.nav-section-toggle:has(> .nav-toggle-caret.collapsed)::after { transform: rotate(-90deg); }
 
 /* Favorites: Tine indents leaves by a 14px caret spacer plus a 4px gap, which put
    the stars 16px right of the other icons; drop the spacer so they share a column. */
@@ -500,10 +540,15 @@ html[data-theme="light"] {
   height: 16px;
   font-size: 0;
   opacity: 1;
+  color: inherit;
   background-color: currentColor;
   -webkit-mask: var(--adw-icon-pan-down) center / 16px 16px no-repeat;
   mask: var(--adw-icon-pan-down) center / 16px 16px no-repeat;
 }
+/* Tine 0.9.0's caret is a ReferenceDisclosure: a triangle <svg> in a span that
+   Tine colours --text-muted. The mask above draws the arrow; the title's own
+   colour keeps it as dark as the graph name. */
+.left-sidebar-inner > .sidebar-header .graph-switch-caret > svg { display: none; }
 /* Its menu hangs from the band, inset like the rows. */
 .left-sidebar-inner > .sidebar-header .graph-switch .graph-switch-menu {
   top: calc(100% - 4px);

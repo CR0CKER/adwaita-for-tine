@@ -5,8 +5,8 @@ native GNOME app: Adwaita colours, GNOME Files' sidebar, round GNOME buttons, li
 port of [Adwaita for Logseq](https://github.com/CR0CKER/adwaita-for-logseq) (v0.3.3), so Tine and
 Logseq look the same side by side.
 
-Built for **Tine 0.8.2** on GNOME 49; the dialog header buttons were added against Tine 0.9.0.
-The CSS targets Tine's markup, which can change between releases.
+Built for **Tine 0.9.0** on GNOME 49. The CSS targets Tine's markup, which can change between
+releases.
 
 ## What's in it
 
@@ -80,10 +80,12 @@ Also recommended:
   measured against Files at the same scale.
 - Rows sit 12px in from the sidebar's edge. The scrollbar sits at the sidebar's right edge, as in
   the main view, with a gutter so it doesn't cover the rows, even when it widens on hover.
-- Journals and All pages first, then Favorites, Recent and Namespaces, with mixed-case headings and
-  a chevron that turns when a section collapses.
+- Journals and All pages first, then Open tabs, Favorites, Recent and Namespaces, with mixed-case
+  headings and a chevron that turns when a section collapses.
 - Page icons on All pages and the Recent rows. Favorites get a monochrome outline star in place of
   the yellow emoji, in the same column as the other icons.
+- Open tabs (shown with two or more tabs) get the Recent rows' page icon, and each row's ✕ is the
+  tab strip's flat 24px close button.
 - "+ New group" slides and fades in only while the pointer (or keyboard focus) is in Favorites;
   always shown on touch screens.
 - Only the page list scrolls: the graph title stays at the top, and New page stays at the bottom.
