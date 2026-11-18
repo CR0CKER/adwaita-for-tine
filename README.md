@@ -8,6 +8,12 @@ Logseq look the same side by side.
 Built for **Tine 0.9.0** on GNOME 49. The CSS targets Tine's markup, which can change between
 releases.
 
+![Adwaita for Tine in light mode: GNOME Files-style sidebar with Journals, All pages and Favorites, a flat header bar, and a page with tasks](docs/screenshots/light.png)
+
+![The same window in dark mode](docs/screenshots/dark.png)
+
+The screenshots show both parts together: the colours of `theme.json` and the layout of `global.css`.
+
 ## What's in it
 
 Tine has two theming layers, and neither can carry everything, so the theme comes in two parts:
