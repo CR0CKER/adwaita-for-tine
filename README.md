@@ -32,8 +32,8 @@ Logseq's **"Text Editor (Adwaita scheme)"** text colours, **Adwaita Sans** and *
 
 ## Install
 
-1. **Theme package:** in Tine, Settings → Appearance → Theme packages, choose `theme.json`, then
-   select **Adwaita**.
+1. **Theme package:** in Tine, Settings → Appearance → Theme packages, install **Adwaita** from the
+   community catalogue, or choose this repo's `theme.json` by hand; then select **Adwaita**.
 2. **CSS:** copy `global.css` to Tine's config folder. Tine reloads it when its window regains
    focus:
 
