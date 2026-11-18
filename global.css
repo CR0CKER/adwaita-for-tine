@@ -12,7 +12,8 @@
    literal colours (scripts/accent.py), so it paints what the plugin paints.
 
    Unlike the theme package, this file applies whichever theme is selected; empty
-   it to go back. Selectors target Tine 0.8.1's markup. */
+   it to go back. Selectors target Tine 0.8.1's markup; section 7 (dialogs)
+   targets 0.9.0's. */
 
 /* ==========================================================================
    1. Tokens
@@ -27,6 +28,8 @@
   /* GNOME symbolic icons, verbatim from /usr/share/icons/Adwaita/symbolic/, and
      Tabler icons (MIT), the set Logseq draws. Used as masks over currentColor. */
   --adw-icon-window-close: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%20%3Cpath%20d%3D%22m%204%204%20h%201%20h%200.03125%20c%200.253906%200.011719%200.511719%200.128906%200.6875%200.3125%20l%202.28125%202.28125%20l%202.3125%20-2.28125%20c%200.265625%20-0.230469%200.445312%20-0.304688%200.6875%20-0.3125%20h%201%20v%201%20c%200%200.285156%20-0.035156%200.550781%20-0.25%200.75%20l%20-2.28125%202.28125%20l%202.25%202.25%20c%200.1875%200.1875%200.28125%200.453125%200.28125%200.71875%20v%201%20h%20-1%20c%20-0.265625%200%20-0.53125%20-0.09375%20-0.71875%20-0.28125%20l%20-2.28125%20-2.28125%20l%20-2.28125%202.28125%20c%20-0.1875%200.1875%20-0.453125%200.28125%20-0.71875%200.28125%20h%20-1%20v%20-1%20c%200%20-0.265625%200.09375%20-0.53125%200.28125%20-0.71875%20l%202.28125%20-2.25%20l%20-2.28125%20-2.28125%20c%20-0.210938%20-0.195312%20-0.304688%20-0.46875%20-0.28125%20-0.75%20z%20m%200%200%22%2F%3E%20%3C%2Fsvg%3E");
+  --adw-icon-window-maximize: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%20%3Cpath%20d%3D%22m%203.988281%203.992188%20v%208.011718%20h%208.011719%20v%20-8.011718%20z%20m%202%202%20h%204.011719%20v%204.011718%20h%20-4.011719%20z%20m%200%200%22%2F%3E%20%3C%2Fsvg%3E");
+  --adw-icon-window-restore: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%20%3Cpath%20d%3D%22m%204.988281%204.992188%20v%206.011718%20h%206.011719%20v%20-6.011718%20z%20m%202%202%20h%202.011719%20v%202.011718%20h%20-2.011719%20z%20m%200%200%22%2F%3E%20%3C%2Fsvg%3E");
   --adw-icon-pan-down: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%20%20%20%20%20%3Cpath%20d%3D%22m%203.292969%207.707031%20l%204%204%20c%200.390625%200.390625%201.023437%200.390625%201.414062%200%20l%204%20-4%20c%200.390625%20-0.390625%200.390625%20-1.023437%200%20-1.414062%20s%20-1.023437%20-0.390625%20-1.414062%200%20l%20-3.292969%203.292969%20l%20-3.292969%20-3.292969%20c%20-0.390625%20-0.390625%20-1.023437%20-0.390625%20-1.414062%200%20s%20-0.390625%201.023437%200%201.414062%20z%20m%200%200%22%20fill%3D%22%23222222%22%20fill-rule%3D%22evenodd%22/%3E%20%3C/svg%3E");
   --adw-icon-pan-end: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%20%20%20%20%20%3Cpath%20d%3D%22m%207%2013%20c%200.265625%200%200.519531%20-0.101562%200.707031%20-0.292969%20l%204%20-4%20c%200.390625%20-0.390625%200.390625%20-1.023437%200%20-1.414062%20l%20-4.003906%20-4%20c%20-0.390625%20-0.386719%20-1.023437%20-0.386719%20-1.414063%200%20c%20-0.386718%200.394531%20-0.386718%201.027343%200.003907%201.414062%20l%203.292969%203.292969%20l%20-3.292969%203.292969%20c%20-0.390625%200.390625%20-0.390625%201.027343%200%201.414062%20c%200.1875%200.191407%200.441406%200.292969%200.707031%200.292969%20z%20m%200%200%22%20fill%3D%22%23222222%22%20fill-rule%3D%22evenodd%22/%3E%20%3C/svg%3E");
   --adw-icon-view-more: url("data:image/svg+xml,%3Csvg%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216px%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%20%20%20%20%20%3Cpath%20d%3D%22m%207.996094%200%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%206%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%206%20c%20-1.105469%200%20-2%200.894531%20-2%202%20s%200.894531%202%202%202%20c%201.101562%200%202%20-0.894531%202%20-2%20s%20-0.898438%20-2%20-2%20-2%20z%20m%200%200%22%20fill%3D%22%232e3436%22/%3E%20%3C/svg%3E");
@@ -637,7 +640,53 @@ html[data-theme="light"] {
 @media (prefers-reduced-motion: reduce) { .right-sidebar .rs-item-actions { transition: none; } }
 
 /* ==========================================================================
-   7. Motion
+   7. Dialogs
+   ========================================================================== */
+
+/* Header buttons of Settings and the share dialogs (all .settings-pane-head):
+   flat 24px circles like the tab and right-sidebar buttons. Tine draws them as
+   text glyphs on a plain .icon-btn: ✕ (always the last button) gets
+   window-close-symbolic, and Settings' □/❐ gets window-maximize-symbolic, or
+   window-restore-symbolic while maximized (aria-pressed). */
+.settings-pane-head > .icon-btn:last-child,
+.settings-pane-head > .settings-maximize {
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 100%;
+  background: none;
+  font-size: 0;
+  color: var(--ls-primary-text-color);
+  cursor: default;
+}
+.settings-pane-head > .icon-btn:last-child::before,
+.settings-pane-head > .settings-maximize::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  -webkit-mask: var(--adw-icon-window-close) center / 16px 16px no-repeat;
+  mask: var(--adw-icon-window-close) center / 16px 16px no-repeat;
+}
+.settings-pane-head > .settings-maximize::before {
+  -webkit-mask-image: var(--adw-icon-window-maximize);
+  mask-image: var(--adw-icon-window-maximize);
+}
+.settings-pane-head > .settings-maximize[aria-pressed="true"]::before {
+  -webkit-mask-image: var(--adw-icon-window-restore);
+  mask-image: var(--adw-icon-window-restore);
+}
+.settings-pane-head > .icon-btn:last-child:hover,
+.settings-pane-head > .settings-maximize:hover { background: var(--adw-row-hover); }
+.settings-pane-head > .icon-btn:last-child:active,
+.settings-pane-head > .settings-maximize:active { background: var(--adw-row-active); }
+
+/* ==========================================================================
+   8. Motion
    ========================================================================== */
 
 /* Sidebars slide in as libadwaita's split views do, pushing the content aside.

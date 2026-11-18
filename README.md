@@ -5,8 +5,8 @@ native GNOME app: Adwaita colours, GNOME Files' sidebar, round GNOME buttons, li
 port of [Adwaita for Logseq](https://github.com/CR0CKER/adwaita-for-logseq) (v0.3.3), so Tine and
 Logseq look the same side by side.
 
-Built for **Tine 0.8.2** on GNOME 49. The CSS targets Tine's markup, which can change
-between releases.
+Built for **Tine 0.8.2** on GNOME 49; the dialog header buttons were added against Tine 0.9.0.
+The CSS targets Tine's markup, which can change between releases.
 
 ## What's in it
 
@@ -105,6 +105,11 @@ Also recommended:
   view; GTK's expander arrows (`pan-end`/`pan-down`, 16px).
 - Each item's ⋯ and ✕ are flat 24px circles with GNOME's `view-more` and `window-close` icons,
   shown on hover or keyboard focus (always on touch screens).
+
+**Dialogs:**
+- The ✕ of Settings and the share dialogs is a flat 24px circle with GNOME's `window-close` icon,
+  like the tab and right-sidebar buttons. Settings' maximize button gets GNOME's
+  `window-maximize` icon, and `window-restore` while maximized.
 
 **Motion:**
 - Both sidebars slide in when they open (250ms), pushing the page aside, like libadwaita's split
